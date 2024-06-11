@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Monitor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Stock Monitor</h1>
+    <form th:action="@{/addStock}" th:object="${stock}" method="post">
+        <div class="form-group">
+            <label for="symbol">Stock Symbol:</label>
+            <input type="text" id="symbol" name="symbol" class="form-control" th:field="*{symbol}" required>
+        </div>
+        <div class="form-group">
+            <label for="threshold">Threshold:</label>
+            <input type="number" id="threshold" name="threshold" class="form-control" th:field="*{threshold}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Stock</button>
+    </form>
+    <div class="mt-4">
+        <a href="/stocks" class="btn btn-secondary">View Current Stocks</a>
+        <a href="/history" class="btn btn-secondary">View History</a>
+    </div>
+</div>
+</body>
+</html>

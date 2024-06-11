@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Monitor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Current Stocks</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Current Price</th>
+            <th>Threshold</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="stock : ${stocks}">
+            <td th:text="${stock.symbol}"></td>
+            <td th:text="${stock.price}"></td>
+            <td th:text="${stock.threshold}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary">Add More Stocks</a>
+    </div>
+</div>
+</body>
+</html>
